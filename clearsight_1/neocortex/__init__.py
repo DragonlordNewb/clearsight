@@ -1,0 +1,3 @@
+from clearsight_1.neocortex import languageprocessing
+from clearsight_1.neocortex import neuralnetworks
+from clearsight_1.neocortex import unification
