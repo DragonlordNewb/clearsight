@@ -87,3 +87,5 @@ class FeedforwardNeuralNetwork:
 
     def matchPattern(self, **patterns):
         # Monte Carlo optimizer
+
+        pass

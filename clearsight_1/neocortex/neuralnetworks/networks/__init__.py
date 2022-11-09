@@ -1,1 +1,0 @@
-from clearsight_1.neocortex.neuralnetworks.networks import feedforward
