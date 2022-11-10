@@ -1,3 +1,4 @@
+from clearsight_1.neocortex import consumption
 from clearsight_1.neocortex import languageprocessing
 from clearsight_1.neocortex import patternrecognition
 from clearsight_1.neocortex import unification

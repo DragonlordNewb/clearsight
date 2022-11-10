@@ -1,2 +1,3 @@
+from clearsight_1.neocortex.patternrecognition import mathematical
 from clearsight_1.neocortex.patternrecognition import neuralnetworks
 from clearsight_1.neocortex.patternrecognition import sequencing
