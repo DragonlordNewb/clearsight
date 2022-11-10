@@ -17,3 +17,6 @@ def counterCosineSimilarity(l1, l2):
 
     # Return the dot product divided by the product of the magnitudes.
     return dotprod / (magA * magB)
+
+def tokenizedSyntaxSimilarity(s1, s2):
+    pass

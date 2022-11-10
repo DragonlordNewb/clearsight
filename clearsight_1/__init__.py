@@ -36,7 +36,7 @@ def initialize():
             command = input_raw.lower().split(" ")
 
             if bool(set(["exit", "shutdown", "terminate"]) & set(command)):
-                print("<System> Terminate the Clearsight-1 system? (y/n)")
+                print("  Terminate the Clearsight-1 system? (y/n)")
                 while True:
                     with term.cbreak(), term.hidden_cursor():
                         k = term.inkey()
@@ -50,7 +50,7 @@ def initialize():
 
         # No system commands; pass the input and respond.
         neocortex.consumption.feed(input_raw)
-        print("<Clearsight-1> " + neocortex.consumption.extract())
+        print("<Clearsight-1> " + str(neocortex.consumption.extract()))
 
 if __name__ == "__main__":
     initialize()
