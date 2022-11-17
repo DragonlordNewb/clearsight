@@ -16,7 +16,7 @@ def commit(filename, data):
     try:
         if os.path.exists(cacheDirectory + currentMemoryCacheName + filename + ".mem"):
             with open(cacheDirectory + currentMemoryCacheName + filename + ".mem", "a") as f:
-                f.write("\n")
+                f.write("\n[partition]")
                 f.write(data)
                 return True
         else:
@@ -26,7 +26,7 @@ def commit(filename, data):
 
     except FileExistsError:
         with open(cacheDirectory + currentMemoryCacheName + filename + ".mem", "a") as f:
-            f.write("\n")
+            f.write("\n[partition]")
             f.write(data)
             return FileExistsError
 
@@ -49,8 +49,5 @@ def remember(data):
           path = os.path.join(root, name)
           with open(path, "r") as f:
               content = f.read()
-              if data in content:
-                  if name not in locatedContent.keys():
-                      locatedContent.keys = []
-                  locatedContent[name].append(data)
+              
     return locatedContent
