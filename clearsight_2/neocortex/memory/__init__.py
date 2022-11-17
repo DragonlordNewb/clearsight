@@ -1,16 +1,16 @@
 import os
 
-cacheDirectory = os.getcwd() + "\\clearsight_2\\neocortex\\memory\\"
+cacheDirectory = os.getcwd() + "/clearsight_2/neocortex/memory/"
 currentMemoryCacheName = None
 
 def loadMemoryCache(mcid):
     global cacheDirectory
     global currentMemoryCacheName
 
-    if os.path.exists(cacheDirectory + mcid):
-        currentMemoryCacheName = mcid
+    if os.path.exists(cacheDirectory + mcid + "/key.mek"):
+        currentMemoryCacheName = mcid + "/"
     else:
-        print("No such memory cache with name \"" + str(mcid) + "\" (not exists " + str(cacheDirectory + mcid) + ").")
+        print("No such memory cache with name \"" + str(mcid) + "\" (not exists " + str(cacheDirectory + mcid + "/key.mek") + ").")
 
 def commit(filename, data):
     try:
