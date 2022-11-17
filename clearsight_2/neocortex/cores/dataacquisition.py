@@ -1,0 +1,2 @@
+def feed(string):
+    return "..."
