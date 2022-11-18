@@ -1,5 +1,6 @@
 { pkgs }: {
   deps = [
+    pkgs.py
     pkgs.unixtools.arp
     pkgs.python38Full
   ];
