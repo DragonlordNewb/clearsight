@@ -1,2 +1,1 @@
 from clearsight_2.neocortex.languageprocessing import tokenization
-from clearsight_2.neocortex.languageprocessing import querying

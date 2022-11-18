@@ -4,6 +4,7 @@ from nltk import pos_tag
 from nltk import word_tokenize
 from nltk import sent_tokenize
 from nltk.corpus import wordnet
+from math import sqrt
 
 tagset = [
     "$", # dollar
@@ -152,6 +153,16 @@ nounTags = [
     "NNS" # noun, common, plural
 ]
 
+commonNounTags = [
+    "NN", # noun, common, singular or mass
+    "NNS" # noun, common, plural
+]
+
+properNounTags = [
+    "NNP", # noun, proper, singular
+    "NNPS" # noun, proper, plural
+]
+
 verbTags = [
     "VB", # verb, base form
     "VBD", # verb, past tense
@@ -231,6 +242,7 @@ class Tokenization:
     def __str__(self):
         return "[clearsight_2.neocortex.languageprocessing.tokenization.py] Tokenization: " + \
             "\n  String: \"" + self.string + "\"" + \
+
             "\n  Determined components:" + \
             "\n    Determined nouns: " + str(self.nouns) + \
             "\n    Determined objects: " + str(self.objects) + \
@@ -244,3 +256,18 @@ class Tokenization:
 
 def tokenize(string):
     return Tokenization(string)
+
+class Object:
+    def __init__(self, postagList):
+        self.postagList = postagList
+        
+        self.nouns = utils.multipleTargetIdentify(postagList, commonNounTags)
+        self.properNouns = utils.multipleTargetIdentify(postagList, properNounTags)
+        self.adjectives = utils.multipleTargetIdentify(postagList, adjectiveTags)
+        
+class Action:
+    def __init__(self, postagList):
+       self.postagList = postagList
+
+       self.verbs = utils.multipleTargetIdentify(postagList, verbTags)
+       self.adjectives = utils.multipleTargetIdentify(postagList, adjectiveTags)
