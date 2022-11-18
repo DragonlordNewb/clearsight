@@ -9,8 +9,21 @@ def loadMemoryCache(mcid):
 
     if os.path.exists(cacheDirectory + mcid + "/key.mek"):
         currentMemoryCacheName = mcid + "/"
+        return True
     else:
         print("No such memory cache with name \"" + str(mcid) + "\" (not exists " + str(cacheDirectory + mcid + "/key.mek") + ").")
+        return NameError
+
+def eraseMemoryFile(mcf):
+    if os.path.exists(cacheDirectory + currentMemoryCacheName + mcf + ".mem"):
+        os.remove(cacheDirectory + currentMemoryCacheName + mcf + ".mem")
+        return True
+    else:
+        print("No such memory cache with name\"" + str(mcf) + "\" (not exists " + str(cacheDirectory + currentMemoryCacheName + "/" + mcf + ".mem") + ").")
+        return NameError
+
+def memoryFileExists(mcf):
+    return os.path.exists(cacheDirectory + currentMemoryCacheName + mcf + ".mem")
 
 def commit(filename, data):
     try:

@@ -180,6 +180,14 @@ objectTags = [
     "JJS" # adjective, superlative
 ]
 
+properObjectTags = [
+    "NNP", # noun, proper, singular
+    "NNPS", # noun, proper, plural
+    "JJ", # adjective or numeral, ordinal
+    "JJR", # adjective, comparative
+    "JJS" # adjective, superlative
+]
+
 actionTags = [
     "VB", # verb, base form
     "VBD", # verb, past tense
@@ -199,6 +207,7 @@ stopwordTags = [
     "LS", # list item marker
 ]
 
+# Still gets confused about "Hello". Fix that?
 class Tokenization:
     def __init__(self, string):
         self.string = string
@@ -208,6 +217,7 @@ class Tokenization:
 
         self.nouns = utils.multipleTargetIdentify(self.pos, nounTags)
         self.objects = utils.multipleTargetIdentify(self.pos, objectTags)
+        self.properObjects = utils.multipleTargetIdentify(self.pos, properObjectTags)
 
         self.verbs = utils.multipleTargetIdentify(self.pos, verbTags)
         self.actions = utils.multipleTargetIdentify(self.pos, actionTags)
@@ -224,6 +234,7 @@ class Tokenization:
             "\n  Determined components:" + \
             "\n    Determined nouns: " + str(self.nouns) + \
             "\n    Determined objects: " + str(self.objects) + \
+            "\n    Determined proper objects: " + str(self.properObjects) + \
             "\n    Determined verbs: " + str(self.verbs) + \
             "\n    Determined actions: " + str(self.actions) + \
             "\n    Determined adjectives: " + str(self.adjectives) + \

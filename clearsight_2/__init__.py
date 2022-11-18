@@ -11,6 +11,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import os
+import sys 
+
+print("Installing packages ... (1/2)", end="")
+sys.stdout.flush()
+os.system("pip install nltk -q")
+print("\rInstalling packages ... (2/2)")
+sys.stdout.flush()
+os.system("pip install blessed -q")
+
 from clearsight_2 import neocortex
 from blessed import Terminal
 
@@ -43,6 +53,13 @@ def initialize():
                     neocortex.cores.loadCore(cmd[2])
                 elif cmd[1] in ["mc", "memorycache", "memory"]:
                     neocortex.memory.loadMemoryCache(cmd[2])
+
+            elif cmd[0] == "run":
+                if cmd[1] in ["sr", "subroutine"]:
+                    if cmd[2] == "1":
+                        neocortex.cores.loadCore("dataacquisition")
+                        neocortex.memory.loadMemoryCache("main")
+                        neocortex.memory.eraseMemoryFile("MAIN")
 
         else:
             if neocortex.cores.currentCore == None:
