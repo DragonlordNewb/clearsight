@@ -5,5 +5,5 @@ def feed(string):
     memory.commit("MAIN", string)
     tok = tokenization.tokenize(string)
     for properObject in [x[0] for x in tok.properObjects]:
-        if not memory.memoryFileExists(properObject):
+        if not memory.memoryFileExists(properObject[0]):
             return "q:" + str(properObject)

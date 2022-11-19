@@ -12,14 +12,14 @@
 # limitations under the License.
 
 import os
-import sys 
+import sys
 
 print("Installing packages ... (1/2)", end="")
 sys.stdout.flush()
-os.system("pip install nltk -q")
+os.system("pip install nltk -q -q")
 print("\rInstalling packages ... (2/2)")
 sys.stdout.flush()
-os.system("pip install blessed -q")
+os.system("pip install blessed -q -q")
 
 from clearsight_2 import neocortex
 from blessed import Terminal

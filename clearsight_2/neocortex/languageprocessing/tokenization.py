@@ -242,7 +242,6 @@ class Tokenization:
     def __str__(self):
         return "[clearsight_2.neocortex.languageprocessing.tokenization.py] Tokenization: " + \
             "\n  String: \"" + self.string + "\"" + \
-
             "\n  Determined components:" + \
             "\n    Determined nouns: " + str(self.nouns) + \
             "\n    Determined objects: " + str(self.objects) + \
@@ -260,11 +259,11 @@ def tokenize(string):
 class Object:
     def __init__(self, postagList):
         self.postagList = postagList
-        
+
         self.nouns = utils.multipleTargetIdentify(postagList, commonNounTags)
         self.properNouns = utils.multipleTargetIdentify(postagList, properNounTags)
         self.adjectives = utils.multipleTargetIdentify(postagList, adjectiveTags)
-        
+
 class Action:
     def __init__(self, postagList):
        self.postagList = postagList
