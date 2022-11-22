@@ -6,4 +6,4 @@ def feed(string):
     tok = tokenization.tokenize(string)
     for tobject in [x[0] for x in tok.objects]:
         if not memory.memoryFileExists(tobject[0]):
-            return "q:" + str(tobject)
+            return "What is " + str(tobject[0])

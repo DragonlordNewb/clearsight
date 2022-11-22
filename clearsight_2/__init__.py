@@ -27,6 +27,8 @@ nltk.download("punkt")
 nltk.download("averaged_perceptron_tagger")
 
 from clearsight_2 import neocortex
+from clearsight_2 import states
+from clearsight_2 import utils
 from blessed import Terminal
 
 term = Terminal()
