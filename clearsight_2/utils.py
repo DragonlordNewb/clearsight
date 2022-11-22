@@ -42,3 +42,19 @@ class Table:
 
     def get(self, row, col):
         return self.content[row][col]
+
+    def getCol(self, col):
+        return [self.content[row][col] for row in self.content.keys()]
+
+    def getRow(self, row):
+        return self.content[row]
+
+    def searchRowByColumn(self, col, value):
+        for row in self.content.keys():
+            if type(row[col]) == type(lambda: None):
+                if value.__code__.co_code == row[col].__code__.co_code:
+                    return row
+            elif row[col] == value:
+                return row
+
+        return None
