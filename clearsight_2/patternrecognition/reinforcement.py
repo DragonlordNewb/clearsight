@@ -50,8 +50,15 @@ def Dijkstra(initialNode, nodes, metric):
     #    3.
 
 class GameState:
-    def __init__(self):
-
+    def __init__(self, resolutions):
+        for resolution in resolutions:
+            ice = SyntaxError("invalid arguments for GameState - must be a list of doubles of condition functions and GameStates")
+            if type(resolution) != type(set()):
+                raise ice
+            if type(resolution[0]) != type(lambda: None):
+                raise ice
+            if type(resolution[1]) != GameState:
+                raise ice
 
 class Game:
     def __init__(self):
