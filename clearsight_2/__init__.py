@@ -21,7 +21,7 @@ print("\rInstalling packages ... (2/2)")
 sys.stdout.flush()
 os.system("pip install blessed -q -q")
 print("Downloading NLTK packages ...")
-import nltk 
+import nltk
 nltk.download("omw-1.4")
 nltk.download("punkt")
 nltk.download("averaged_perceptron_tagger")
@@ -29,6 +29,7 @@ nltk.download("averaged_perceptron_tagger")
 from clearsight_2 import neocortex
 from clearsight_2 import states
 from clearsight_2 import utils
+from clearsight_2 import cryptography
 from blessed import Terminal
 
 term = Terminal()
