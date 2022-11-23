@@ -1,6 +1,12 @@
-def Dijkstra(nodes, initialNode, nodes, metric):
+INFINITY = "INFINITY"
+
+def Dijkstra(initialNode, nodes, metric):
     # 1. Mark all nodes unvisited. Create a set of all the unvisited nodes
     #    called the unvisited set.
+
+    unvisited = set()
+    for node in nodes:
+        unvisited.add(node)
 
     # 2. Assign to every node a tentative distance value: set it to zero for our
     #    initial node and to infinity for all other nodes. During the run of the
@@ -10,6 +16,11 @@ def Dijkstra(nodes, initialNode, nodes, metric):
     #    source itself (which is a path of length zero), all other tentative
     #    distances are initially set to infinity. Set the initial node as
     #    current.
+
+    for node in nodes:
+        setattr(node, "tentativeDistance", INFINITY)
+
+    setattr(node, "tentativeDistance", 0)
 
     # 3. For the current node, consider all of its unvisited neighbors and
     #    calculate their tentative distances through the current node. Compare
