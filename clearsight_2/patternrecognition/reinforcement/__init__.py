@@ -1,0 +1,2 @@
+from clearsight_2.patternrecognition.reinforcement import game
+from clearsight_2.patternrecognition.reinforcement import reinforcement
