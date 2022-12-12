@@ -90,6 +90,8 @@ class PatternIntelligence:
     def __init__(self, patterns, name=None, selfImprove=False):
         self.patterns = patterns
         self.name = name
+        self.selfImprove = selfImprove
+        self.history = []
 
     def add(self, *patterns):
         for pattern in patterns:
@@ -120,6 +122,8 @@ class PatternIntelligence:
 
         for pattern in self.patterns:
             diffs[targetPattern.difference(pattern)] = pattern
+
+        self.history.append((targetPattern, diffs[min(diffs.keys())]))
 
         return diffs[min(diffs.keys())]
 
