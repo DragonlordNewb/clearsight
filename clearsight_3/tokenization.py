@@ -1,4 +1,4 @@
-from clearsight_2 import utils
+from clearsight_3 import utils
 
 from nltk import pos_tag
 from nltk import word_tokenize
@@ -240,7 +240,7 @@ class Tokenization:
             pos = item[1]
 
     def __str__(self):
-        return "[clearsight_2.neocortex.languageprocessing.tokenization.py] Tokenization: " + \
+        return "[clearsight_3.tokenization] Tokenization: " + \
             "\n  String: \"" + self.string + "\"" + \
             "\n  Determined components:" + \
             "\n    Determined nouns: " + str(self.nouns) + \
