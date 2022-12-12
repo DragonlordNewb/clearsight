@@ -97,6 +97,15 @@ class PatternIntelligence:
         for pattern in patterns:
             self.patterns.append(pattern)
 
+    def remove(self, *patterns):
+        self.patterns = [x for x in self.patterns if x not in patterns]
+
+    def feedback(self, historyIndex, feedback):
+        if feedback:
+            self.add(self.history[historyIndex][1])
+        else:
+            self.remove(self.history[historyIndex][0])
+
     def generateCorrectedDatabase(self, indexBlacklist, maximum):
         # Generate a database of all patterns in the set that have the component
         # of the selected index (or indices) removed. Used later in the .fill()
@@ -163,9 +172,17 @@ class PatternIntelligence:
 class PatternSuperintelligence:
     def __init__(self, intelligences):
         self.intelligences = intelligences
+        self.history = []
         
     def select(self, name):
         return [x for x in self.intelligences if x.name == name][0]
+
+    def feedback(self, historyIndex, feedback):
+        intelligence = self.select(self.history[historyIndex][0])
+        if feedback:
+            intelligence.add(self.history[historyIndex][2])
+        else:
+            intelligence.remove(self.history[historyIndex][1])
 
     def match(self, targetPattern):
         # Returns a pair (match, name of intelligence that produced it)
@@ -173,6 +190,9 @@ class PatternSuperintelligence:
         for intelligence in self.intelligences:
             m = intelligence.match(targetPattern)
             matches[targetPattern.difference(m)] = (m, intelligence.name)
+        self.history.append((
+            intelligence.name, targetPattern, matches[min(matches.keys())]
+        ))
         return matches[min(matches.keys())]
 
     def fill(self, framework):
