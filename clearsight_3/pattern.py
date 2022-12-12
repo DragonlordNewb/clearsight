@@ -87,7 +87,7 @@ class PatternFramework(Pattern):
         return Pattern(*self.data)
 
 class PatternIntelligence:
-    def __init__(self, patterns, name=None):
+    def __init__(self, patterns, name=None, selfImprove=False):
         self.patterns = patterns
         self.name = name
 
