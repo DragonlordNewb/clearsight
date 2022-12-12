@@ -66,7 +66,7 @@ class PatternFramework(Pattern):
     def __init__(self, *data):
         Pattern.__init__(self, *data)
         self.knowns = [x for x in self.data if x not in [UNKNOWN, None]]
-        self.unknownIndices = []
+        self.unknownIndices = [
 
     def __sub__(self, other):
         return Pattern(*[x for x in self.knowns if x not in other.data])
