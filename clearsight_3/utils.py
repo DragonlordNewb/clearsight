@@ -20,6 +20,9 @@ def multipleTargetIdentify(l, ts):
             current = []
     return [i for i in out if len(i) > 0]
 
+def number(l):
+    return [(l[x], x) for x in range(len(l))]
+
 # Wrote this code while listening to Dragostea Din Tei, can't guarantee functionality. Ck9k
 class Table:
     def __init__(self, content):

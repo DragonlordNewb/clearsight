@@ -87,8 +87,9 @@ class PatternFramework(Pattern):
         return Pattern(*self.data)
 
 class PatternIntelligence:
-    def __init__(self, patterns):
+    def __init__(self, patterns, name=None):
         self.patterns = patterns
+        self.name = name
 
     def add(self, *patterns):
         for pattern in patterns:
@@ -151,6 +152,31 @@ class PatternIntelligence:
         # of it existed before the .make() call; that is, a new pattern is
         # created from nothing.
 
+        pass
+
+class PatternSuperintelligence:
+    def __init__(self, intelligences):
+        self.intelligences = intelligences
+        
+    def select(self, name):
+        return [x for x in self.intelligences if x.name == name][0]
+
+    def match(self, targetPattern):
+        # Returns a pair (match, name of intelligence that produced it)
+        matches = {}
+        for intelligence in self.intelligences:
+            m = intelligence.match(targetPattern)
+            matches[targetPattern.difference(m)] = (m, intelligence.name)
+        return matches(min(matches.keys()))
+
+    def fill(self, framework):
+        # Convert the framework and match it to find out which intelligence works
+        # with it best, then use that one to fill it
+        mr = self.match(framework.convert())
+        intelligence = self.select(mr[1])
+        return intelligence.fill(framework)
+
+    def make(self, charge):
         pass
 
 def unittest_numericalMatching():
