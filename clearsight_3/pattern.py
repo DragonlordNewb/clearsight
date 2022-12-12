@@ -67,6 +67,8 @@ class PatternFramework(Pattern):
         Pattern.__init__(self, *data)
         self.knowns = [x for x in self.data if x not in [UNKNOWN, None]]
         self.unknownIndices = [
+            x for x in range(self.length) if self.data[x] in [UNKNOWN, None]
+        ]
 
     def __sub__(self, other):
         return Pattern(*[x for x in self.knowns if x not in other.data])
@@ -103,7 +105,7 @@ class PatternIntelligence:
             for index in range(len(pattern)):
                 if (index not in indexBlacklist) and (index <= maximum):
                     data.append(pattern.data[index])
-            output.apend(Pattern(*data))
+            output.append(Pattern(*data))
 
     def match(self, targetPattern): # Low generativity
         # Find the pattern in the existing database that best matches the target
@@ -127,16 +129,19 @@ class PatternIntelligence:
         # a new pattern is created from existing components.
 
         data = []
-        for index in framework.data:
-            database = None
+        for index in range(len(framework.data)):
+            database = self.generateCorrectedDatabase(
+                framework.unknownIndices, index
+            )
+            difflist = [(framework.difference(p), p) for p in database]
             # We don't need to fill in the data if it already exists
             if framework.data[index] not in ["UNKNOWN", None]:
                 data.append(framework.data[index])
                 continue
 
-            for pattern in self.patterns:
-                if pattern.data:
-                    pass
+            framework.inherit(difflist[min(difflist.keys())])
+
+        return framework.convert()
 
     def make(self, charge): # High generativity
         # Generate a new (pseudo-random) pattern that matches the existing
