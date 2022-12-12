@@ -199,12 +199,20 @@ def unittest_numericalMatching():
     print("[clearsight_3.pattern] Unit test passed.")
     return True
 
-def unittest_naturalLanguageMatching():
+def unittest_naturalLanguageMatching_1():
     # Natural language matching test - for typo correction & the like
 
     # Like before, A, B, C, D, and E are all training patterns. They're added
     # to the database of the intelligence so that it can match the test patterns.
     
     A = Pattern(
-        PatternComponent()
+        PatternComponent(nltk.word_tokenize("Hello, how are you doing?")),
+        PatternComponent(nltk.word_tokenize("I\'m alright, thank you."))
+    )
+    B = Pattern(
+        PatternComponent(nltk.word_tokenize("Would you like a sandwich?")),
+        PatternComponent(nltk.word_tokenize("Yes, please, thank you."))
+    )
+    C = Pattern(
+        PatternComponent(nltk.word_tokenize(""))
     )
