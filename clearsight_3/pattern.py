@@ -108,6 +108,8 @@ class PatternIntelligence:
                     data.append(pattern.data[index])
             output.append(Pattern(*data))
 
+        return output
+
     def match(self, targetPattern): # Low generativity
         # Find the pattern in the existing database that best matches the target
         # pattern and return it. No generativity since the output had to be
@@ -167,7 +169,7 @@ class PatternSuperintelligence:
         for intelligence in self.intelligences:
             m = intelligence.match(targetPattern)
             matches[targetPattern.difference(m)] = (m, intelligence.name)
-        return matches(min(matches.keys()))
+        return matches[min(matches.keys())]
 
     def fill(self, framework):
         # Convert the framework and match it to find out which intelligence works

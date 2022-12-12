@@ -266,7 +266,7 @@ class Object:
 
 class Action:
     def __init__(self, postagList):
-       self.postagList = postagList
+        self.postagList = postagList
 
-       self.verbs = utils.multipleTargetIdentify(postagList, verbTags)
-       self.adjectives = utils.multipleTargetIdentify(postagList, adjectiveTags)
+        self.verbs = utils.multipleTargetIdentify(postagList, verbTags)
+        self.adjectives = utils.multipleTargetIdentify(postagList, adjectiveTags)
