@@ -3,6 +3,8 @@ import nltk
 UNKNOWN = "UNKNOWN"
 
 class PatternComponent:
+    # Basically a fancy list that supports cool math.
+    
     def __init__(self, *data):
         self.data = data
         self.length = len(self.data)
@@ -27,6 +29,8 @@ class PatternComponent:
         return 1 / self.difference(other)
 
 class Pattern:
+    # Represents an ordered list of datasets.
+
     def __init__(self, *data):
         self.data = data
         self.length = len(self.data)
@@ -63,6 +67,7 @@ class Pattern:
         return 1 / self.difference(other)
 
 class PatternFramework(Pattern):
+    # A "partial" pattern; that is, one that can be filled (see PatternIntelligence).
     def __init__(self, *data):
         Pattern.__init__(self, *data)
         self.knowns = [x for x in self.data if x not in [UNKNOWN, None]]
@@ -87,6 +92,10 @@ class PatternFramework(Pattern):
         return Pattern(*self.data)
 
 class PatternIntelligence:
+    # A god class that creates the most useful object in the module.
+    # Allows the procedural, non-deterministic classification of data and 
+    # pattern matching and filling (guessing incomplete data from existing points).
+
     def __init__(self, patterns, name=None, selfImprove=False):
         self.patterns = patterns
         self.name = name
@@ -170,6 +179,10 @@ class PatternIntelligence:
         pass
 
 class PatternSuperintelligence:
+    # Functionally similar to the PatternIntelligence class, but utilizes several
+    # of them as subsystems to be able to categorize, match, and fill many different
+    # types of input.
+
     def __init__(self, intelligences):
         self.intelligences = intelligences
         self.history = []
