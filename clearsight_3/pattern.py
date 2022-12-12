@@ -199,7 +199,7 @@ def unittest_numericalMatching():
 
     out = qX and qY and qZ
     print("  (qX and qY and qZ) == " + str(out))
-    assert out
+    assert out, "Unit test failure"
     print("[clearsight_3.pattern] Unit test passed.")
     return True
 
@@ -263,3 +263,13 @@ def unittest_naturalLanguageMatching_1():
     mY = intelligence.match(Y) 
     qY = mY == B
     print("  (intelligence.match(Y) == B) == " + str(qY))
+
+    mZ = intelligence.match(Z)
+    qZ = mZ == E
+    print("  (intelligence.match(Z) == E) == " + str(qZ))
+
+    out = qX and qY and qZ
+    print("  (qX and qY and qZ) == " + str(out))
+    assert out, "Unit test failure"
+    print("[clearsight_3.pattern] Unit test passed.")
+    return True
