@@ -206,7 +206,7 @@ class PatternSuperintelligence:
         self.history.append((
             intelligence.name, targetPattern, matches[min(matches.keys())]
         ))
-        return matches[min(matches.keys())]
+        return (intelligence.name, matches[min(matches.keys())])
 
     def fill(self, framework):
         # Convert the framework and match it to find out which intelligence works

@@ -5,7 +5,7 @@ import nltk
 
 def unittest_numericalMatching():
     # Numerical matching unit test
-    print("[clearsight_3.pattern] Loading unit test for pattern matching ...")
+    print("[clearsight_3.patternmatching] Loading unit test for pattern matching ...")
 
     # pattern.Patterns A, B, C, D, and E are test patterns, each with simple data.
     # They are used to "train" the intelligence; more accurately, to add to its
@@ -33,7 +33,7 @@ def unittest_numericalMatching():
 
     intelligence = pattern.PatternIntelligence([A, B, C, D, E])
 
-    print("[clearsight_3.pattern] Loaded, starting unit test ...")
+    print("[clearsight_3.patternmatching] Loaded, starting unit test ...")
 
     mX = intelligence.match(X)
     qX = mX == D
@@ -56,7 +56,7 @@ def unittest_numericalMatching():
 def unittest_naturalLanguageMatching_1():
     # Natural language matching test - for typo correction & the like
 
-    print("[clearsight_3.pattern] Loading unit test for NL matching ...")
+    print("[clearsight_3.patternmatching] Loading unit test for NL matching ...")
 
     # Like before, A, B, C, D, and E are all training patterns. They're added
     # to the database of the intelligence so that it can match the test patterns.
@@ -104,7 +104,7 @@ def unittest_naturalLanguageMatching_1():
 
     intelligence = pattern.PatternIntelligence([A, B, C, D, E])
 
-    print("[clearsight_3.pattern] Loaded, starting unit test ...")
+    print("[clearsight_3.patternmatching] Loaded, starting unit test ...")
 
     mX = intelligence.match(X)
     qX = mX == C
@@ -121,5 +121,78 @@ def unittest_naturalLanguageMatching_1():
     out = qX and qY and qZ
     print("  (qX and qY and qZ) == " + str(out))
     assert out, "Unit test failure"
-    print("[clearsight_3.pattern] Unit test passed.")
+    print("[clearsight_3.patternmatching] Unit test passed.")
     return True
+
+def unittest_superintelligence():
+    # Natural language test incorporating the superintelligence class
+
+    print("[clearsight_3.patternmatching] Loading unit test for \
+superintelligence ...")
+
+    # Set 1
+
+    A = pattern.Pattern(
+        pattern.PatternComponent(*nltk.word_tokenize("I would like a sandwich."))
+    )
+
+    B = pattern.Pattern(
+        pattern.PatternComponent(*nltk.word_tokenize("I want a sandwich."))
+    )
+
+    C = pattern.Pattern(
+        pattern.PatternComponent(*nltk.word_tokenize("I want to have a sanwich."))
+    )
+
+    D = pattern.Pattern(
+        pattern.PatternComponent(*nltk.word_tokenize("Give me a sandwich."))
+    )
+
+    E = pattern.Pattern(
+        pattern.PatternComponent(*nltk.word_tokenize("I want to eat a sandwich."))
+    )
+
+    intelligence1 = pattern.PatternIntelligence([A, B, C, D, E], name="i1")
+
+    # Set 2
+
+    F = pattern.Pattern(
+        pattern.PatternComponent(*nltk.word_tokenize("May I please have a sandwich?"))
+    )
+
+    G = pattern.Pattern(
+        pattern.PatternComponent(*nltk.word_tokenize("Can I have a sandwich?"))
+    )
+
+    H = pattern.Pattern(
+        pattern.PatternComponent(*nltk.word_tokenize("May I have a sandwich?"))
+    )
+
+    I = pattern.Pattern(
+        pattern.PatternComponent(*nltk.word_tokenize("Can I please have a sanwich?"))
+    )
+
+    J = pattern.Pattern(
+        pattern.PatternComponent(*nltk.word_tokenize("Could you give me a sandwich?"))
+    )
+
+    intelligence2 = pattern.PatternIntelligence([F, G, H, I, J], name="i2")
+
+    superintelligence = pattern.PatternSuperintelligence(
+        intelligence1, 
+        intelligence2
+    )
+
+    X = pattern.Pattern(
+        pattern.PatternComponent(nltk.word_tokenize("I really want a sandwich."))
+    )
+
+    Y = pattern.Pattern(
+        pattern.PatternComponent(nltk.word_tokenize("I want a sandwich to eat."))
+    )
+
+    Z = pattern.Pattern(
+        pattern.PatternComponent(nltk.word_tokenize("Can you pass me a sandwich?"))
+    )
+
+    print("[clearsight_3.patternmatching] Loaded, started unit test ...")
