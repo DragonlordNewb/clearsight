@@ -1,4 +1,5 @@
 import nltk
+import json
 
 UNKNOWN = "UNKNOWN"
 
@@ -65,6 +66,9 @@ class Pattern:
 
     def similarity(self, other):
         return 1 / self.difference(other)
+
+    def dumpJSON(self):
+        return json.dumps([comp.data for comp in self.data])
 
 class PatternFramework(Pattern):
     # A "partial" pattern; that is, one that can be filled (see PatternIntelligence).
