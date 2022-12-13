@@ -1,0 +1,19 @@
+{
+  "desc": "A description of the dataset",
+
+  "initial": {
+    "description": "A set of numbered JSON patterns (see patternformat.json)"
+  },
+
+  "dataset": {
+    "description": "A set of two other lists of JSON patterns; one for training and one for testing.",
+
+    "training": {
+      "description": "A set of patterns for training"
+    },
+
+    "testing": {
+      "description": "A set of patterns for testing"
+    }
+  }
+}

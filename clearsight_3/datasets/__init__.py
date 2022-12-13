@@ -1,3 +1,5 @@
+from clearsight_3.patternmatching import pattern
+
 import json
 import os
 

@@ -1,5 +1,41 @@
 {
-  "1": {
-    "lmao": "lmao"
+  "desc": "Basic dataset #1 - Sandwich",
+
+  "initial": {
+
+    {
+
+      "comp1": {
+        "data1": "d1",
+        "data2": "d2",
+        "data3": "d3"
+      },
+
+      "comp2": {
+        "data1": "d1",
+        "data2": "d2",
+        "data3": "d3"
+      },
+
+      "comp3": {
+        "data1": "d1",
+        "data2": "d2",
+        "data3": "d3"
+      }
+    }
+
+  },
+
+  "dataset": {
+
+    "training": {
+      "description": "A set of patterns for training"
+    },
+
+    "testing": {
+      "description": "A set of patterns for testing"
+    }
+
   }
+
 }
