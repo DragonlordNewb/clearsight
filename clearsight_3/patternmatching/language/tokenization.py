@@ -1,4 +1,5 @@
 from clearsight_3 import utils
+from clearsight_3.patternmatching import pattern
 
 from nltk import pos_tag
 from nltk import word_tokenize
@@ -280,6 +281,20 @@ class Tokenization:
             "\n  Part-of-speech tagging: " + str(self.pos) + \
             "\n  Sentence tokenization: " + str(self.sent) + \
             "\n  Word tokenization: " + str(self.word)
+
+    def convert(self):
+        return pattern.Pattern(
+            pattern.PatternComponent(self.string),
+            pattern.PatternComponent(*self.nouns),
+            pattern.PatternComponent(*self.objects),
+            pattern.PatternComponent(*self.properObjects),
+            pattern.PatternComponent(*self.verbs),
+            pattern.PatternComponent(*self.actions),
+            pattern.PatternComponent(*self.adjectives),
+            pattern.PatternComponent(*self.pos),
+            pattern.PatternComponent(*self.sent),
+            pattern.PatternComponent(*self.word)
+        )
 
 def tokenize(string):
     return Tokenization(string)
