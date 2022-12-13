@@ -1,6 +1,6 @@
 print("[clearsight_3] Loading ...")
 
-import time 
+import time
 
 print("  Importing interface ...")
 from clearsight_3 import interface
@@ -10,8 +10,8 @@ print("  Importing packages ...")
 from clearsight_3 import packages
 print("  Importing patternmatching ...")
 from clearsight_3 import patternmatching
-print("  Importing tokenization ...")
-from clearsight_3 import tokenization
+# print("  Importing tokenization ...")
+# from clearsight_3 import tokenization
 print("  Importing datasets ...")
 from clearsight_3 import datasets
 

@@ -2,6 +2,7 @@ import os
 import sys
 
 dependencies = ["nltk", "--upgrade pip"]
+nltkPackages = ["omw-1.4", "averaged_perceptron_tagger", "wordnet", "opinion_lexicon"]
 
 def installPackage(pkg):
     print("[clearsight_3.packages] Installing package \"" + pkg + "\" ...", end="")
@@ -21,6 +22,12 @@ def installPackage(pkg):
     print("failed.")
     return False
 
+def installNLTKData(name):
+    import nltk
+    nltk.download(name)
+
 def installDependencies():
     for pkg in dependencies:
         installPackage(pkg)
+    for data in nltkPackages:
+        installNLTKData(data)

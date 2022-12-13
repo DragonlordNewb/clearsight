@@ -5,6 +5,7 @@ from nltk import pos_tag
 from nltk import word_tokenize
 from nltk import sent_tokenize
 from nltk.corpus import wordnet
+from nltk.corpus import opinion_lexicon
 from math import sqrt
 
 def singleTargetIdentify(l, t):
@@ -263,6 +264,9 @@ class Tokenization:
         self.actions = multipleTargetIdentify(self.pos, actionTags)
 
         self.adjectives = multipleTargetIdentify(self.pos, adjectiveTags)
+
+        self.negative = [x for x in self.word if x in opinion_lexicon.negative()]
+        self.positive = [x for x in self.word if x in opinion_lexicon.positive()]
 
         for item in self.pos:
             s = item[0]
