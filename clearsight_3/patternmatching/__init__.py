@@ -186,13 +186,34 @@ superintelligence ...")
     X = pattern.Pattern(
         pattern.PatternComponent(nltk.word_tokenize("I really want a sandwich."))
     )
+    # matches 1B
 
     Y = pattern.Pattern(
         pattern.PatternComponent(nltk.word_tokenize("I want a sandwich to eat."))
     )
+    # matches 1E
 
     Z = pattern.Pattern(
         pattern.PatternComponent(nltk.word_tokenize("Can you pass me a sandwich?"))
     )
+    # matches 2J
 
     print("[clearsight_3.patternmatching] Loaded, started unit test ...")
+
+    mX = superintelligence.match(X)
+    qX = (mX[0] == "i1") and (mX[1] == B)
+    print("  ((mX[0] == \"i1\") and (mX[1] == B)) == " + str(qX))
+
+    mY = superintelligence.match(Y)
+    qY = (mY[0] == "i1") and (mY[1] == E)
+    print("  ((mY[0] == \"i1\") and (mY[1] == E)) == " + str(qY))
+
+    mZ = superintelligence.match(Z)
+    qZ = (mZ[0] == "i2") and (mZ[1] == J)
+    print("  ((mZ[0] == \"i2\") and (mZ[1] == J)) == " + str(qZ))
+
+    out = qX and qY and qZ 
+    print("  (qX and qY and qZ) == " + str(out))
+    assert out, "Unit test failure"
+    print("[clearsight_3.patternmatching] Unit test passed.")
+    return True

@@ -15,5 +15,6 @@ packages.installDependencies()
 
 patternmatching.unittest_numericalMatching()
 patternmatching.unittest_naturalLanguageMatching_1()
+patternmatching.unittest_superintelligence()
 
 print("[clearsight_3] Done.")
