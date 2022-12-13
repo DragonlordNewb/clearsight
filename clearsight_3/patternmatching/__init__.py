@@ -178,10 +178,10 @@ superintelligence ...")
 
     intelligence2 = pattern.PatternIntelligence([F, G, H, I, J], name="i2")
 
-    superintelligence = pattern.PatternSuperintelligence(
+    superintelligence = pattern.PatternSuperintelligence([
         intelligence1, 
         intelligence2
-    )
+    ])
 
     X = pattern.Pattern(
         pattern.PatternComponent(nltk.word_tokenize("I really want a sandwich."))
@@ -202,14 +202,17 @@ superintelligence ...")
 
     mX = superintelligence.match(X)
     qX = (mX[0] == "i1") and (mX[1] == B)
+    print("  " + str(mX))
     print("  ((mX[0] == \"i1\") and (mX[1] == B)) == " + str(qX))
 
     mY = superintelligence.match(Y)
     qY = (mY[0] == "i1") and (mY[1] == E)
+    print("  " + str(mY))
     print("  ((mY[0] == \"i1\") and (mY[1] == E)) == " + str(qY))
 
     mZ = superintelligence.match(Z)
     qZ = (mZ[0] == "i2") and (mZ[1] == J)
+    print("  " + str(mZ))
     print("  ((mZ[0] == \"i2\") and (mZ[1] == J)) == " + str(qZ))
 
     out = qX and qY and qZ 

@@ -6,11 +6,11 @@ dependencies = ["nltk", "--upgrade pip"]
 def installPackage(pkg):
     print("[clearsight_3.packages] Installing package \"" + pkg + "\" ...", end="")
     sys.stdout.flush()
-    out = os.system("py -m pip install " + pkg + " -q --no-warn-script-location")
+    out = os.system("python3 -m pip install " + pkg + " -q --no-warn-script-location")
     if not out:
         print("done.")
         return True
-    out = os.system("python3 -m pip install " + pkg + " -q --no-warn-script-location")
+    out = os.system("py -m pip install " + pkg + " -q --no-warn-script-location")
     if not out:
         print("done.")
         return True
