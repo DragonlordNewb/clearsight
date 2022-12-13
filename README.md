@@ -1,5 +1,5 @@
 # Clearsight
-## Python-based Artificial General Intelligence System, versions 1 and 2
+## Python-based Artificial General Intelligence System
 
 Copyright 2022-2023 Lux Bodell.  
 Licensed under the **Apache License, Version 2.0** (the "**License**"); you may not use this file or any associated files except in compliance with the License. You may obtain a copy of the License at the "`LICENSE`" file in this directory; or, if you cannot retrieve that instance of the License, you may obtain a copy of the License at

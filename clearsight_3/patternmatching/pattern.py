@@ -221,3 +221,18 @@ class PatternSuperintelligence:
 
     def make(self, charge):
         pass
+
+def loadJSON(js):
+    lst = json.loads(js)
+    return Pattern(
+        PatternComponent(lst[0]),
+        PatternComponent(*[x[0] for x in lst[1]]),
+        PatternComponent(*[x[0] for x in lst[2]]),
+        PatternComponent(*[x[0] for x in lst[3]]),
+        PatternComponent(*[x[0] for x in lst[4]]),
+        PatternComponent(*[x[0] for x in lst[5]]),
+        PatternComponent(*[x[0] for x in lst[6]]),
+        PatternComponent(*lst[7]),
+        PatternComponent(*lst[8]),
+        PatternComponent(*lst[9])
+    )
