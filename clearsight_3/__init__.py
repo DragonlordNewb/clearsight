@@ -1,5 +1,9 @@
 print("[clearsight_3] Loading ...")
 
+import time 
+
+print("  Importing interface ...")
+from clearsight_3 import interface
 print("  Importing misc ...")
 from clearsight_3 import misc
 print("  Importing packages ...")
