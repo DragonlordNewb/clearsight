@@ -1,9 +1,10 @@
 from clearsight_3 import misc
 from clearsight_3 import packages
-from clearsight_3 import pattern
+from clearsight_3 import patternmatching
 from clearsight_3 import tokenization
+from clearsight_3 import datasets
 
 packages.installDependencies()
 
-pattern.unittest_numericalMatching()
-pattern.unittest_naturalLanguageMatching_1()
+patternmatching.unittest_numericalMatching()
+patternmatching.unittest_naturalLanguageMatching_1()

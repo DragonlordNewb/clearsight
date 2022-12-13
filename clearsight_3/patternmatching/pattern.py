@@ -4,7 +4,7 @@ UNKNOWN = "UNKNOWN"
 
 class PatternComponent:
     # Basically a fancy list that supports cool math.
-    
+
     def __init__(self, *data):
         self.data = data
         self.length = len(self.data)
@@ -93,7 +93,7 @@ class PatternFramework(Pattern):
 
 class PatternIntelligence:
     # A god class that creates the most useful object in the module.
-    # Allows the procedural, non-deterministic classification of data and 
+    # Allows the procedural, non-deterministic classification of data and
     # pattern matching and filling (guessing incomplete data from existing points).
 
     def __init__(self, patterns, name=None, selfImprove=False):
@@ -186,7 +186,7 @@ class PatternSuperintelligence:
     def __init__(self, intelligences):
         self.intelligences = intelligences
         self.history = []
-        
+
     def select(self, name):
         return [x for x in self.intelligences if x.name == name][0]
 
@@ -217,124 +217,3 @@ class PatternSuperintelligence:
 
     def make(self, charge):
         pass
-
-def unittest_numericalMatching():
-    # Numerical matching unit test
-    print("[clearsight_3.pattern] Loading unit test for pattern matching ...")
-
-    # Patterns A, B, C, D, and E are test patterns, each with simple data.
-    # They are used to "train" the intelligence; more accurately, to add to its
-    # database of known patterns.
-
-    A = Pattern(PatternComponent(1), PatternComponent(2), PatternComponent(3))
-    B = Pattern(PatternComponent(3), PatternComponent(2), PatternComponent(1))
-    C = Pattern(PatternComponent(1), PatternComponent(1), PatternComponent(1))
-    D = Pattern(PatternComponent(2), PatternComponent(2), PatternComponent(2))
-    E = Pattern(PatternComponent(3), PatternComponent(3), PatternComponent(3))
-
-    # Patterns X, Y, and Z correspond roughly to the test patterns, varying by
-    # 0.1 or 0.2 each time. Despite this, the intelligence is able to match the 
-    # patterns to their corresponding values in the test pattern database without
-    # the use of rounding, which proves its pattern matching capability.
-
-    X = Pattern(PatternComponent(2), PatternComponent(1.9), PatternComponent(2.1))
-    # matches D
-
-    Y = Pattern(PatternComponent(1.1), PatternComponent(2), PatternComponent(3))
-    # matches A
-    
-    Z = Pattern(PatternComponent(3), PatternComponent(2), PatternComponent(0.9))
-    # matches B
-
-    intelligence = PatternIntelligence([A, B, C, D, E])
-
-    print("[clearsight_3.pattern] Loaded, starting unit test ...")
-    
-    mX = intelligence.match(X)
-    qX = mX == D
-    print("  (intelligence.match(X) == D) == " + str(qX))
-
-    mY = intelligence.match(Y)
-    qY = mY == A
-    print("  (intelligence.match(Y) == A) == " + str(qY))
-
-    mZ = intelligence.match(Z)
-    qZ = mZ == B 
-    print("  (intelligence.match(Z) == B) == " + str(qZ))
-
-    out = qX and qY and qZ
-    print("  (qX and qY and qZ) == " + str(out))
-    assert out, "Unit test failure"
-    print("[clearsight_3.pattern] Unit test passed.")
-    return True
-
-def unittest_naturalLanguageMatching_1():
-    # Natural language matching test - for typo correction & the like
-
-    print("[clearsight_3.pattern] Loading unit test for NL matching ...")
-
-    # Like before, A, B, C, D, and E are all training patterns. They're added
-    # to the database of the intelligence so that it can match the test patterns.
-    
-    A = Pattern(
-        PatternComponent(*nltk.word_tokenize("Hello, how are you doing?")),
-        PatternComponent(*nltk.word_tokenize("I\'m alright, thank you."))
-    )
-    B = Pattern(
-        PatternComponent(*nltk.word_tokenize("Would you like a sandwich?")),
-        PatternComponent(*nltk.word_tokenize("Yes, please, thank you."))
-    )
-    C = Pattern(
-        PatternComponent(*nltk.word_tokenize("Can I get a sandwich?")),
-        PatternComponent(*nltk.word_tokenize("Yes, one second please."))
-    )
-    D = Pattern(
-        PatternComponent(*nltk.word_tokenize("Thank you for the sandwich.")),
-        PatternComponent(*nltk.word_tokenize("Of course, my pleasure."))
-    )
-    E = Pattern(
-        PatternComponent(*nltk.word_tokenize("I have to go, goodbye.")),
-        PatternComponent(*nltk.word_tokenize("Alright, goodbye, see you later."))
-    )
-
-    # Patterns X, Y, and Z are rough correspondents, like before.
-
-    X = Pattern(
-        PatternComponent(*nltk.word_tokenize("May I have a sandwich?")),
-        PatternComponent(*nltk.word_tokenize("Yes, one second."))
-    )
-    # corresponds to C
-
-    Y = Pattern(
-        PatternComponent(*nltk.word_tokenize("Do you want a sandwich?")),
-        PatternComponent(*nltk.word_tokenize("Yes, please, thanks."))
-    )
-    # corresponds to B
-
-    Z = Pattern(
-        PatternComponent(*nltk.word_tokenize("I've got to go, goodbye.")),
-        PatternComponent(*nltk.word_tokenize("Alright, see you later, goodbye."))
-    )
-    # corresponds to E
-
-    intelligence = PatternIntelligence([A, B, C, D, E])
-
-    print("[clearsight_3.pattern] Loaded, starting unit test ...")
-
-    mX = intelligence.match(X)
-    qX = mX == C
-    print("  (intelligence.match(X) == C) == " + str(qX))
-
-    mY = intelligence.match(Y) 
-    qY = mY == B
-    print("  (intelligence.match(Y) == B) == " + str(qY))
-
-    mZ = intelligence.match(Z)
-    qZ = mZ == E
-    print("  (intelligence.match(Z) == E) == " + str(qZ))
-
-    out = qX and qY and qZ
-    print("  (qX and qY and qZ) == " + str(out))
-    assert out, "Unit test failure"
-    print("[clearsight_3.pattern] Unit test passed.")
-    return True
