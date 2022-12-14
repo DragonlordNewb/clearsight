@@ -220,3 +220,8 @@ superintelligence ...")
     assert out, "Unit test failure"
     print("[clearsight_3.patternmatching] Unit test passed.")
     return True
+
+def unittest_tokenizedLanguageMatching():
+    print("[clearsight_3.patternmatching] Loading unit test for TNLP ...")
+
+    print("[clearsight_3.patternmatching] Loaded, starting unit test ...")

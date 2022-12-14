@@ -10,6 +10,7 @@ while True:
         if cmd[1] == "exit":
             exit()
     tk = clearsight_3.patternmatching.language.tokenization.tokenize(inp)
+    pt = tk.convert()
 
     output = "..."
 
