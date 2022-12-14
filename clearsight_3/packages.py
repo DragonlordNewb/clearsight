@@ -7,11 +7,11 @@ nltkPackages = ["omw-1.4", "averaged_perceptron_tagger", "wordnet", "opinion_lex
 def installPackage(pkg):
     print("[clearsight_3.packages] Installing package \"" + pkg + "\" ...", end="")
     sys.stdout.flush()
-    out = os.system("python3 -m pip install " + pkg + " -q --no-warn-script-location")
+    out = os.system("py -m pip install " + pkg + " -q --no-warn-script-location")
     if not out:
         print("done.")
         return True
-    out = os.system("py -m pip install " + pkg + " -q --no-warn-script-location")
+    out = os.system("python3 -m pip install " + pkg + " -q --no-warn-script-location")
     if not out:
         print("done.")
         return True

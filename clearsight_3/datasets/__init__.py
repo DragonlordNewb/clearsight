@@ -32,3 +32,7 @@ def parseRaw(filename):
         return out
     else:
         return FileNotFoundError
+
+sandwich_questions = parseRaw("basic/questions/sandwich.rawnlp.dat")
+questions = parseRaw("basic/questions/all.json")
+statements = parseRaw("basic/statements/all.json")

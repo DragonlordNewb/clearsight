@@ -265,8 +265,8 @@ class Tokenization:
 
         self.adjectives = multipleTargetIdentify(self.pos, adjectiveTags)
 
-        self.negative = [x for x in self.word if x in opinion_lexicon.negative()]
-        self.positive = [x for x in self.word if x in opinion_lexicon.positive()]
+        # self.negative = [x for x in self.word if x in opinion_lexicon.negative()]
+        # self.positive = [x for x in self.word if x in opinion_lexicon.positive()]
 
         for item in self.pos:
             s = item[0]
