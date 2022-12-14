@@ -272,6 +272,9 @@ class Tokenization:
             s = item[0]
             pos = item[1]
 
+    def __contains__(self, other):
+        return other in self.string or other in self.word or other in self.pos or other in self.sent
+
     def __str__(self):
         return "[clearsight_3.tokenization] Tokenization: " + \
             "\n  String: \"" + self.string + "\"" + \

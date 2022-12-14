@@ -2,20 +2,23 @@ print("[clearsight_3] Loading ...")
 
 import time
 
+print("  Importing packages ...")
+from clearsight_3 import packages
+packages.installDependencies()
 print("  Importing interface ...")
 from clearsight_3 import interface
 print("  Importing misc ...")
 from clearsight_3 import misc
-print("  Importing packages ...")
-from clearsight_3 import packages
 print("  Importing patternmatching ...")
 from clearsight_3 import patternmatching
-# print("  Importing tokenization ...")
-# from clearsight_3 import tokenization
 print("  Importing datasets ...")
 from clearsight_3 import datasets
-
-packages.installDependencies()
+print("  Importing states ...")
+from clearsight_3 import states
+print("  Importing memory ...")
+from clearsight_3 import memory
+print("  Importing unification ...")
+from clearsight_3 import unification
 
 try:
     patternmatching.unittest_numericalMatching()
