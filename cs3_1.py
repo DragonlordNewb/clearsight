@@ -15,6 +15,9 @@ while True:
         if cmd[1] == "exit":
             exit()
 
+        if cmd[1] == "dump":
+            print([str(x) for x in clearsight_3.memory.shortterm.memories])
+
     output = "..."
 
     if state == clearsight_3.states.WAITING:

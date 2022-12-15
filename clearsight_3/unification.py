@@ -7,3 +7,6 @@ class Definition:
 
     def __contains__(self, other):
         return other in self.meaning or other == word
+
+    def __str__(self):
+        return str(self.word) + ": " + str(self.meaning)
