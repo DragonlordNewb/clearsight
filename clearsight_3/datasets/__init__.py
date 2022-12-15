@@ -36,3 +36,5 @@ def parseRaw(filename):
 sandwich_questions = parseRaw("basic/questions/sandwich.rawnlp.dat")
 questions = parseRaw("basic/questions/all.json")
 statements = parseRaw("basic/statements/all.json")
+positiveOpinions = parseRaw("basic/opinion/positive.json")
+negativeOpinions = parseRaw("basic/opinion/negative.json")

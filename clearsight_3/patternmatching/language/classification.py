@@ -23,6 +23,8 @@ import nltk
 # )
 
 questionClassifier = pattern.PatternIntelligence(datasets.questions, "classQ")
-statementClassifier = pattern.PatternIntelligence(datasets.questions, "classS")
+statementClassifier = pattern.PatternIntelligence(datasets.statements, "classS")
+positivityClassifier = pattern.PatternIntelligence(datasets.positiveOpinions, "classP")
+negativityClassifier = pattern.PatternIntelligence(datasets.negativeOpinions, "classN")
 
 classifier = pattern.PatternSuperintelligence(None)
