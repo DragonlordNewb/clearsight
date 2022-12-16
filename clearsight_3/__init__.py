@@ -22,6 +22,8 @@ print("  Importing memory ...")
 from clearsight_3 import memory
 print("  Importing unification ...")
 from clearsight_3 import unification
+print("  Importing vocaloid ...")
+from clearsight_3 import vocaloid
 
 try:
     patternmatching.unittest_numericalMatching()

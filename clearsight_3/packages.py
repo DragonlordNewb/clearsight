@@ -1,7 +1,7 @@
 import os
 import sys
 
-dependencies = ["nltk", "--upgrade pip", "blessed"]
+dependencies = ["nltk", "--upgrade pip", "blessed", "pyttsx3", "speechrecognition"]
 nltkPackages = ["punkt", "omw-1.4", "averaged_perceptron_tagger", "wordnet", "opinion_lexicon"]
 
 def installPackage(pkg):

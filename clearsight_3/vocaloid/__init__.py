@@ -1,0 +1,2 @@
+from clearsight_3.vocaloid import synthesis
+from clearsight_3.vocaloid import recognition
