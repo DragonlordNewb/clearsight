@@ -224,4 +224,6 @@ superintelligence ...")
 def unittest_tokenizedLanguageMatching():
     print("[clearsight_3.patternmatching] Loading unit test for TNLP ...")
 
+    X = 
+
     print("[clearsight_3.patternmatching] Loaded, starting unit test ...")

@@ -182,7 +182,13 @@ class PatternIntelligence:
 
         pass
 
-class PatternSuperintelligence:
+    def unfamiliarity(self, targetPattern):
+        differences = []
+        for pattern in self.patterns:
+            differencces.append(pattern.difference(targetPattern))
+        return sum(differences)
+
+class PatternSuperintelligenceV1:
     # Functionally similar to the PatternIntelligence class, but utilizes several
     # of them as subsystems to be able to categorize, match, and fill many different
     # types of input.
@@ -221,6 +227,10 @@ class PatternSuperintelligence:
 
     def make(self, charge):
         pass
+
+class PatternSuperintelligenceV2:
+    def __init__(self, intelligences):
+        self.intelligences = intelligences
 
 def loadJSON(js):
     lst = json.loads(js)
