@@ -25,7 +25,7 @@ while True:
         
         for po in tk.properObjects:
             if po not in properNouns:
-                output = "What is " + str(po[0])
+                output = "What is " + str(po[0][0])
                 listeningFor = po[0]
                 state == clearsight_3.states.LISTENING
 

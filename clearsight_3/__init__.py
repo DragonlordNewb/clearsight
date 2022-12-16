@@ -1,6 +1,9 @@
 print("[clearsight_3] Loading ...")
 
 import time
+import psutil
+
+st = time.time()
 
 print("  Importing packages ...")
 from clearsight_3 import packages
@@ -29,4 +32,8 @@ except AssertionError:
 except Exception as e:
     raise e
 
+et = time.time()
+
 print("[clearsight_3] Done.")
+print("  Consumed memory starting up: " + str(round(psutil.virtual_memory()[3]/1000000000, 3)) + " GB")
+print("  Startup time: " + str(round(et - st, 2)) + " seconds")

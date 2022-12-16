@@ -2,7 +2,7 @@ import os
 import sys
 
 dependencies = ["nltk", "--upgrade pip", "blessed"]
-nltkPackages = ["omw-1.4", "averaged_perceptron_tagger", "wordnet", "opinion_lexicon"]
+nltkPackages = ["punkt", "omw-1.4", "averaged_perceptron_tagger", "wordnet", "opinion_lexicon"]
 
 def installPackage(pkg):
     print("[clearsight_3.packages] Installing package \"" + pkg + "\" ...", end="")
