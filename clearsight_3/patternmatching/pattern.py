@@ -182,11 +182,21 @@ class PatternIntelligence:
 
         pass
 
-    def unfamiliarity(self, targetPattern):
+    def netUnfamiliarity(self, targetPattern):
         differences = []
         for pattern in self.patterns:
-            differencces.append(pattern.difference(targetPattern))
+            differences.append(pattern.difference(targetPattern))
         return sum(differences)
+
+    def unfamiliarity(self, targetPattern):
+        differences = [pattern.difference(targetPattern) for pattern in self.patterns]
+        return min(differences)
+    
+    def familiarity(self, targetPattern):
+        if targetPattern in self.patterns:
+            return 0
+        else:
+            return 1 / self.unfamiliarity(targetPattern)
 
 class PatternSuperintelligenceV1:
     # Functionally similar to the PatternIntelligence class, but utilizes several
@@ -231,6 +241,21 @@ class PatternSuperintelligenceV1:
 class PatternSuperintelligenceV2:
     def __init__(self, intelligences):
         self.intelligences = intelligences
+
+    def generateFamiliarities(self, targetPattern):
+        return {intelligence.familiarity(targetPattern): intelligence for intelligence in self.intelligences}
+        
+    def getMostFamiliarIntelligence(self, targetPattern):
+        familiarities = self.generateFamiliarities(targetPattern)
+        return familiarities[min(familiarities.keys())]
+
+    def match(self, targetPattern):
+        intelligence = self.getMostFamiliarIntelligence(targetPattern)
+        return (intelligence.name, intelligence.match(targetPattern))
+
+    def fill(self, targetPattern):
+        intelligence = self.getMostFamiliarIntelligence(targetPattern)
+        return (intelligence.name, intelligence.fill(targetPattern))
 
 def loadJSON(js):
     lst = json.loads(js)

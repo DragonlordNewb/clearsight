@@ -178,23 +178,23 @@ superintelligence ...")
 
     intelligence2 = pattern.PatternIntelligence([F, G, H, I, J], name="i2")
 
-    superintelligence = pattern.PatternSuperintelligence([
+    superintelligence = pattern.PatternSuperintelligenceV2([
         intelligence1,
         intelligence2
     ])
 
     X = pattern.Pattern(
-        pattern.PatternComponent(nltk.word_tokenize("I really want a sandwich."))
+        pattern.PatternComponent(nltk.word_tokenize("I want a sandwich."))
     )
     # matches 1B
 
     Y = pattern.Pattern(
-        pattern.PatternComponent(nltk.word_tokenize("I want a sandwich to eat."))
+        pattern.PatternComponent(nltk.word_tokenize("I want to eat a sandwich."))
     )
     # matches 1E
 
     Z = pattern.Pattern(
-        pattern.PatternComponent(nltk.word_tokenize("Can you pass me a sandwich?"))
+        pattern.PatternComponent(nltk.word_tokenize("Can you give me a sandwich?"))
     )
     # matches 2J
 

@@ -27,4 +27,4 @@ statementClassifier = pattern.PatternIntelligence(datasets.statements, "classS")
 positivityClassifier = pattern.PatternIntelligence(datasets.positiveOpinions, "classP")
 negativityClassifier = pattern.PatternIntelligence(datasets.negativeOpinions, "classN")
 
-classifier = pattern.PatternSuperintelligence(None)
+classifier = pattern.PatternSuperintelligenceV1(None)
