@@ -179,7 +179,7 @@ superintelligence ...")
     intelligence2 = pattern.PatternIntelligence([F, G, H, I, J], name="i2")
 
     superintelligence = pattern.PatternSuperintelligence([
-        intelligence1, 
+        intelligence1,
         intelligence2
     ])
 
@@ -215,7 +215,7 @@ superintelligence ...")
     print("  " + str(mZ))
     print("  ((mZ[0] == \"i2\") and (mZ[1] == J)) == " + str(qZ))
 
-    out = qX and qY and qZ 
+    out = qX and qY and qZ
     print("  (qX and qY and qZ) == " + str(out))
     assert out, "Unit test failure"
     print("[clearsight_3.patternmatching] Unit test passed.")
@@ -224,6 +224,6 @@ superintelligence ...")
 def unittest_tokenizedLanguageMatching():
     print("[clearsight_3.patternmatching] Loading unit test for TNLP ...")
 
-    X = 
+    X = None
 
     print("[clearsight_3.patternmatching] Loaded, starting unit test ...")
