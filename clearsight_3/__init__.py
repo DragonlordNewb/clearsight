@@ -39,3 +39,6 @@ et = time.time()
 print("[clearsight_3] Done.")
 print("  Consumed memory starting up: " + str(round(psutil.virtual_memory()[3]/1000000000, 3)) + " GB")
 print("  Startup time: " + str(round(et - st, 2)) + " seconds")
+
+def initialize():
+    pass

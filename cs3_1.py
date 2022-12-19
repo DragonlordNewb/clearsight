@@ -1,5 +1,8 @@
 import clearsight_3
 
+print("[cs3_1] This version of Clearsight (3.1) is no longer functional. Please use 3.2.")
+exit()
+
 print("[cs3_1] Loading Clearsight-3-1 Artificial General Intelligence system ...")
 
 properNouns = []

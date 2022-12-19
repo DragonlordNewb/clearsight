@@ -1,2 +1,0 @@
-WAITING = 0
-LISTENING = 0

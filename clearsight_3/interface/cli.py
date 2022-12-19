@@ -2,6 +2,9 @@ import blessed
 
 t = blessed.Terminal()
 
+def listen():
+    return input("<user> ")
+
 def initializeCLI():
     print(t.clear())
     
