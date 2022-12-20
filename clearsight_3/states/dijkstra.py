@@ -1,3 +1,13 @@
+from clearsight_3.states import graph
+
+INFINITY = "infinity"
+
+def shortestPath(graph, startNodeName, endNodeName): # Theoretically, runs in O(n^2) time
+    unvisited = nodes
+    unvisited.append(initialNode)
+
+    for node in unvisited:
+        node.tentativeDistance = INFINITY
 # 1. Mark all nodes unvisited. Create a set of all the unvisited nodes called the unvisited set.
 # 2. Assign to every node a tentative distance value: set it to zero for our initial node and to 
 #    infinity for all other nodes. During the run of the algorithm, the tentative distance of a 
